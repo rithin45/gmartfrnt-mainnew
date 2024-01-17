@@ -11,7 +11,7 @@ const Category = () => {
     "name":'',
     "offer_price":'',
     "MRP":'',
-    "category":'Fruits'
+    "category":''
     
   })
   
@@ -47,10 +47,10 @@ const Category = () => {
       <TextField label="Offer Price" type="text" name="offer_price" value={inputs.offer_price} onChange={(event) => inpuHandler (event)}/><br /><br />
       <TextField label="MRP" type="text" name="MRP" value={inputs.MRP} onChange={(event) => inpuHandler (event)}/> <br /><br />
 
-      <Select label="Product category"value={inputs.category}name="category"onChange={inpuHandler}>
-        <MenuItem value="fruits">Fruits</MenuItem>
-        <MenuItem value="vegetables" selected>Vegetables</MenuItem>
-        <MenuItem value="others">Others</MenuItem>
+      <Select label="Product category" name="category" value={inputs.category}onChange={inpuHandler}>
+        <MenuItem value="vegetables">Vegetables</MenuItem>
+            <MenuItem value="fruits">Fruits</MenuItem>
+            <MenuItem value="others">Others</MenuItem>
       </Select>
       
       <button className="addproduct-btn" onClick={()=>{addHandler()}}>ADD</button>
