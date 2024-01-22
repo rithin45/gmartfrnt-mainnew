@@ -35,6 +35,7 @@ const Categorydetails = () => {
             <TableCell>Offer Price</TableCell>
               <TableCell>MRP</TableCell>
               <TableCell>Category</TableCell>
+              <TableCell>Image</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -51,6 +52,9 @@ const Categorydetails = () => {
                   <TableCell>{row.MRP}</TableCell>
                   <TableCell>{row.category}</TableCell>
                   <TableCell><EditIcon onClick={() => updateValues(row)} /></TableCell>
+                  <TableCell>
+                       <img src={`data:image/jpeg;base64,${Buffer.from(row.image1.data).toString('base64')}`}
+                        width="50" height="50" alt="Error"/></TableCell>
 
                 </TableRow>
 

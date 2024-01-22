@@ -11,9 +11,10 @@ const Category = () => {
     "name":'',
     "offer_price":'',
     "MRP":'',
-    "category":''
+    "category":'Fruits'
     
   })
+  var[selectedimage,setSelectedimage]=useState(null);
   
 
   const inpuHandler =(event) =>{
@@ -22,17 +23,46 @@ const Category = () => {
     console.log(inputs)
   }
 
-    const addHandler=() =>{
-      console.log("Clicked")
+  const savedata=()=>{
+    const formdata=new FormData();
+    formdata.append('name',inputs.name);
+    formdata.append('offer_price',inputs.offer_price);
+    formdata.append('MRP',inputs.MRP);
+    formdata.append('category',inputs.category);
+    formdata.append('image1',selectedimage)
+    fetch('http://localhost:3005/new',
+    {
+        method:'post',
+        body:formdata,
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+        alert("record saved")
+    })
+    .catch((err)=>{
+        console.log("error")
+    })
+}
 
-      console.log(inputs)
-      axios.post("http://localhost:3005/new",inputs)
-      .then((response)=>{
-        alert("Record Saved")
-      })
-      .catch(err=>console.log(err))
+  //   const addHandler=() =>{
+  //     console.log("Clicked")
+
+  //     console.log(inputs)
+  //     axios.post("http://localhost:3005/new",inputs)
+  //     .then((response)=>{
+  //       alert("Record Saved")
+  //     })
+  //     .catch(err=>console.log(err))
       
-  }
+  // }
+
+  const handleimage =(event)=>{
+    const file = event.target.files[0];
+    setSelectedimage(file)
+    inputs.image1=file;
+    }
+
+    
 
 
   return (
@@ -48,12 +78,15 @@ const Category = () => {
       <TextField label="MRP" type="text" name="MRP" value={inputs.MRP} onChange={(event) => inpuHandler (event)}/> <br /><br />
 
       <Select label="Product category" name="category" value={inputs.category}onChange={inpuHandler}>
-        <MenuItem value="vegetables">Vegetables</MenuItem>
-            <MenuItem value="fruits">Fruits</MenuItem>
-            <MenuItem value="others">Others</MenuItem>
-      </Select>
+        <MenuItem value="Vegetables">Vegetables</MenuItem>
+            <MenuItem value="Fruits">Fruits</MenuItem>
+            <MenuItem value="Others">Others</MenuItem>
+      </Select><br /><br />
+      <label>Upload file</label>
+        <input type="file" onChange={handleimage}></input>
+        <br /><br />
       
-      <button className="addproduct-btn" onClick={()=>{addHandler()}}>ADD</button>
+      <button className="addproduct-btn" onClick={()=>{savedata()}}>ADD</button>
     </div>
     </div>
   )

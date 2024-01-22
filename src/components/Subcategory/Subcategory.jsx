@@ -22,7 +22,7 @@ const Subcategory = () => {
     var[inputs,setInputs]=useState({
       "id":'',
       "pname":'',
-      "status":'Active(Default)'
+      "status":'Active'
     })
   
     const inputHandler =(event) =>{
@@ -76,10 +76,10 @@ const Subcategory = () => {
     }
   </Select> */}
   <Select
-   labelId="contained" label="status"
+   labelId="contained" label="Status"
     name='status'value={inputs.status} onChange={inputHandler}>
-   <MenuItem value="In-Active">In-Active</MenuItem>
-        <MenuItem value="Active">Active(default)</MenuItem>
+        <MenuItem value="Active">Active</MenuItem>
+        <MenuItem value="In-Active">In-Active</MenuItem>
   </Select><br /><br />
 {/* </FormControl><br/><br/> */}
     <Button variant="contained" onClick={addHandler} >Submit</Button>

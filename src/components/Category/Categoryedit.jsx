@@ -63,10 +63,10 @@ const Categoryedit = (props) => {
     <Select
    labelId="demo-simple-select-label"
     name='category'value={inputs.category} onChange={inputHandler}>
-   <MenuItem value="vegetables">Vegeables</MenuItem>
+   <MenuItem value="vegetables">Vegetables</MenuItem>
         <MenuItem value="fruits">Fruits</MenuItem>
         <MenuItem value="others">Others</MenuItem>
-  </Select>
+  </Select><br /><br />
 {/* </FormControl><br/><br/> */}
   <Button variant="contained" onClick={addHandler} >Update</Button>
   </div>

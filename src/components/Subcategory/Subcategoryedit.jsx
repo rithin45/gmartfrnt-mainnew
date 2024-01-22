@@ -61,9 +61,10 @@ const Subcategoryedit = (props) => {
     <Select
    labelId="demo-simple-select-label"
     name='status'value={inputs.status} onChange={inputHandler}>
+      <MenuItem value="Active">Active</MenuItem>
    <MenuItem value="In-Active">In-Active</MenuItem>
-        <MenuItem value="Active">Active(default)</MenuItem>
-  </Select>
+        
+  </Select><br /><br />
 {/* </FormControl><br/><br/> */}
   <Button variant="contained" onClick={addHandler} >Update</Button>
   </div>
