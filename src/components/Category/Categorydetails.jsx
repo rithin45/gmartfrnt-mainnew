@@ -6,6 +6,7 @@ import Categoryedit from './Categoryedit';
 import './Categoryview.css'
 import Topbar from '../Adminpanel/Topbar';
 import Sidebar from '../Adminpanel/Sidebar';
+import{Buffer} from 'buffer';
 
 const Categorydetails = () => {
   var [category, setCategory] = useState([]);
@@ -44,17 +45,18 @@ const Categorydetails = () => {
               return (
                 <TableRow
                   key={pos}>
-                  <TableCell>
-                    {row.id}
-                  </TableCell>
+                  
                   <TableCell>{row.name}</TableCell>
                   <TableCell>{row.offer_price}</TableCell>
                   <TableCell>{row.MRP}</TableCell>
                   <TableCell>{row.category}</TableCell>
                   <TableCell><EditIcon onClick={() => updateValues(row)} /></TableCell>
-                  <TableCell>
+                   {/* <TableCell>
                        <img src={`data:image/jpeg;base64,${Buffer.from(row.image1.data).toString('base64')}`}
-                        width="50" height="50" alt="Error"/></TableCell>
+                        width="50" height="50" alt="Error"/></TableCell>  */}
+                        <TableCell>
+                          <img src={`data:image/jpeg;base64,${Buffer.from(row.image1.data).toString('base64')}`}width="50" height="50" alt='error'/>
+                        </TableCell>
 
                 </TableRow>
 

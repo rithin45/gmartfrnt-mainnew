@@ -8,7 +8,7 @@ const Home = (props) => {
     <div>
 
      <Topbar xxx={props.checkLogout}/>
-     <p className='wel'> Welcome to the grocery shop-- Admin</p>
+       <p className='wel'> WELCOME TO THE GROCERY SHOP!-Admin</p>
      <Sidebar/>
       </div>
   )

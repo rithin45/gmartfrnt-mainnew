@@ -5,7 +5,7 @@ const Footer = () => {
     <div id ="root">
     
       <footer>
-        <p>&copy;E Grocery </p>
+        <p>&copy;E Grocery shop  </p>
       </footer>
       
     </div>
